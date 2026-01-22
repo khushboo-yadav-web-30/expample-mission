@@ -1,0 +1,248 @@
+.hero-extended {
+  min-height: 500vh; /* Extended height for scroll story */
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  background: #000;
+  z-index: 1; /* Lower z-index */
+}
+
+.hero-visual {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  pointer-events: none; /* Prevent interference with other sections */
+}
+
+.hero-visual-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-canvas,
+.threejs-container {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.9;
+}
+
+.threejs-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hero-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Lower z-index to stay behind other sections */
+  text-align: center;
+  max-width: 1000px;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hero-title-section {
+  margin-bottom: 4rem;
+  position: relative;
+}
+
+.hero-title-main {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  font-weight: 900;
+  line-height: 0.85;
+  margin-bottom: 2rem;
+  letter-spacing: -0.05em;
+  perspective: 1000px;
+}
+
+.title-letter {
+  display: inline-block;
+  transform-origin: center bottom;
+  color: #fff;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  font-family: 'Inter', sans-serif;
+  will-change: transform, opacity;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #ccc;
+  position: relative;
+  transform-origin: center;
+  will-change: transform, opacity, filter;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Slide Content Styles */
+.slide-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.slide-text {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  line-height: 1.4;
+  color: #fff;
+  font-weight: 400;
+}
+
+.accent-text {
+  color: #FF6B9D;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.accent-text::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #FF6B9D, #9B59B6);
+  animation: shimmer 2s ease-in-out infinite;
+}
+
+/* Final Content Styles */
+.final-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.final-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #fff;
+  text-align: center;
+}
+
+/* Clay Family Content Styles */
+.clay-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.clay-text {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.4;
+  color: #fff;
+  font-weight: 400;
+  text-align: center;
+}
+
+.clay-highlight {
+  color: #FF6B9D;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.5; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.1); }
+}
+
+/* Letter animation effects */
+.title-letter {
+  transition: all 0.3s ease;
+}
+
+.title-letter:hover {
+  color: #4ecdc4;
+  text-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+  transform: scale(1.05);
+}
+
+/* Smooth animation support */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.hero-subtitle,
+.title-letter {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Phase specific styles */
+.phase-1 {
+  /* Initial title phase */
+}
+
+.phase-2, .phase-3 {
+  /* Slide phases */
+}
+
+.phase-4 {
+  /* Final phase */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title-main {
+    font-size: 2rem;
+    line-height: 0.9;
+  }
+  
+  .hero-subtitle {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .slide-text {
+    font-size: 1.5rem;
+  }
+  
+  .final-title {
+    font-size: 2rem;
+  }
+  
+  .hero-content {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title-main {
+    font-size: 1.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+  
+  .slide-text {
+    font-size: 1.2rem;
+  }
+  
+  .final-title {
+    font-size: 1.5rem;
+  }
+}

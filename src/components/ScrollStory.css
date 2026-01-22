@@ -1,0 +1,245 @@
+.scroll-story {
+  min-height: 400vh; /* Restore scroll height for proper scroll story */
+  position: relative;
+  background: #000;
+  overflow: hidden;
+  z-index: 5; /* Lower z-index than CallToAction */
+}
+
+.scroll-story-canvas {
+  position: fixed; /* Back to fixed positioning */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.scroll-story-canvas canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.story-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.story-title {
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 900;
+  color: #fff;
+  margin: 0 auto 3rem auto;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  pointer-events: auto;
+}
+
+.story-text {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 900px;
+  pointer-events: auto;
+}
+
+/* Phase 1: First Description */
+.phase-1 {
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.phase-1 .story-text {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  line-height: 1.5;
+  color: #fff;
+  font-weight: 400;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Phase 2: Connected Across Time */
+.phase-2 {
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.phase-2 .story-title {
+  background: linear-gradient(135deg, #FF6B9D, #4ECDC4, #9B59B6);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease-in-out infinite;
+  margin: 0 auto 2rem auto;
+  text-align: center;
+}
+
+.phase-2 .story-text {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  line-height: 1.6;
+  color: #ccc;
+  font-weight: 300;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Phase 3: We Are Your A-Team */
+.phase-3 {
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.phase-3 .story-title {
+  background: linear-gradient(135deg, #FFD700, #FF6B9D, #9B59B6, #4ECDC4);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: rainbowShift 4s ease-in-out infinite;
+  margin: 0 auto 2rem auto;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+  text-align: center;
+}
+
+.phase-3 .story-text {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  line-height: 1.5;
+  color: #fff;
+  font-weight: 400;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Gradient Animations */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes rainbowShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .story-content {
+    padding: 1rem;
+  }
+  
+  .story-title {
+    font-size: 3rem;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .phase-1,
+  .phase-2,
+  .phase-3 {
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .phase-1 .story-text,
+  .phase-2 .story-text,
+  .phase-3 .story-text {
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .story-content {
+    padding: 0.5rem;
+  }
+  
+  .story-title {
+    font-size: 2.5rem;
+    margin: 0 auto 1.5rem auto;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .phase-1 .story-text,
+  .phase-2 .story-text,
+  .phase-3 .story-text {
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+}
+
+/* Smooth scrolling and performance */
+.scroll-story * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.story-content {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: opacity, transform;
+}
+
+/* Enhanced text effects */
+.story-title {
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.1));
+}
+
+.story-text {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}

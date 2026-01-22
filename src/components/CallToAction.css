@@ -1,0 +1,207 @@
+.cta-section {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 10; /* Ensure it's above other sections */
+  margin-top: -100px; /* Overlap with FAQ gradient */
+  margin-bottom: 0; /* Remove bottom margin for footer merge */
+}
+
+.cta-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, 
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(83, 52, 131, 0.6) 20%,
+    #1a1a2e 40%,
+    #16213e 60%,
+    #0f3460 80%,
+    #7209b7 100%
+  );
+  z-index: 1;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(83, 52, 131, 0.2) 0%,
+    rgba(26, 26, 46, 0.8) 20%,
+    rgba(22, 33, 62, 1) 40%,
+    rgba(15, 52, 96, 1) 60%,
+    rgba(83, 52, 131, 1) 80%,
+    rgba(114, 9, 183, 1) 100%
+  );
+  z-index: 2;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 10; /* Higher z-index to ensure it's on top */
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem; /* Add more padding */
+}
+
+.cta-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-subtitle {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* START YOUR MISSION Button */
+.start-mission-btn {
+  background: rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.start-mission-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  border-color: #FF6B9D;
+  box-shadow: 0 0 30px rgba(255, 107, 157, 0.4);
+  transform: translateY(-2px);
+}
+
+.start-mission-btn .btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  gap: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.start-mission-btn span {
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1.2px;
+}
+
+.start-mission-btn .arrow-icon {
+  background: #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #7209b7;
+  transition: all 0.3s ease;
+}
+
+.start-mission-btn:hover .arrow-icon {
+  background: #FF6B9D;
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.start-mission-btn:hover span {
+  color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .cta-content {
+    padding: 0 1.5rem;
+  }
+  
+  .cta-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .start-mission-btn .btn-content {
+    padding: 14px 28px;
+    gap: 12px;
+  }
+  
+  .start-mission-btn span {
+    font-size: 0.85rem;
+  }
+  
+  .start-mission-btn .arrow-icon {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cta-content {
+    padding: 0 1rem;
+  }
+  
+  .cta-title {
+    font-size: 2rem;
+  }
+  
+  .cta-subtitle {
+    font-size: 1rem;
+  }
+  
+  .start-mission-btn .btn-content {
+    padding: 12px 24px;
+    gap: 10px;
+  }
+  
+  .start-mission-btn span {
+    font-size: 0.8rem;
+    letter-spacing: 0.8px;
+  }
+  
+  .start-mission-btn .arrow-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Animation enhancements */
+.cta-section * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.start-mission-btn {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
